@@ -39,8 +39,12 @@ self.addEventListener('fetch', (e) => {
         if (res && res.ok) {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(req, copy));
+          return res;
         }
-        return res;
+        // il sito risponde con un errore (es. 404 se viene tolto da GitHub): usa la copia già salvata sull'iPad
+        return caches.match(req, { ignoreSearch: true })
+          .then((r) => r || (req.mode === 'navigate' ? caches.match('./index.html') : null))
+          .then((r) => r || res);
       })
       .catch(() => caches.match(req, { ignoreSearch: true }).then((r) => r || caches.match('./index.html')))
   );
