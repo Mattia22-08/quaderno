@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Il mio Quaderno</title>
+  <meta name="description" content="Il tuo quaderno digitale: capitoli, appunti, evidenziatori e foto. Tutto resta salvato.">
+  <meta name="theme-color" content="#F4F6F8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12161D" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Quaderno">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" aria-live="polite"></div>
+  <div id="toast" role="status" hidden></div>
+  <div id="modal-root"></div>
+  <input type="file" id="photo-input" accept="image/*" hidden>
+  <input type="file" id="restore-input" accept=".json,application/json" hidden>
+  <script src="vendor/jspdf.umd.min.js" defer></script>
+  <script src="pdf.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
